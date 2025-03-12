@@ -24,10 +24,10 @@ Think about which debugging methods you found most useful and how you might appl
 // Description:
 // This program is intended to display a simple prompt in the console but fails to run.
 
-console.log("Welcome to the bootcamp
+console.log("Welcome to the bootcamp");
 
 // What’s Wrong?
-
+// This is a syntax error. The string is missing the closing quotation mark and the closing parenthesis. The fix was apllied.
 
 // Program B
 // Description:
@@ -35,12 +35,16 @@ console.log("Welcome to the bootcamp
 
 let numbers = [2, 4, "eight"];
 for (let i = 0; i < numbers.length; i++) {
+  if (typeof numbers[i] === "number") {
   let doubled = numbers[i] * 2;
   console.log(doubled);
+  } else {
+    console.log(`Skipping non-numeric value: ${numbers[i]}`);
+  }
 }
 
 // What’s Wrong?
-
+//This is a runtime error. The error is the there is a string in the array of numbers. The fix would be to create an if statement to skip the NaN.
 
 
 // Program C (Logic Error)
@@ -51,12 +55,16 @@ function isPrime(num) {
   if (num < 2) return false;
   for (let i = 2; i < num; i++) {
     if (num % i === 0) {
-      return true;  // Supposed to indicate num is NOT prime
+      return false;  // Supposed to indicate num is NOT prime
     }
   }
-  return false; // Supposed to indicate num IS prime
+  return true; // Supposed to indicate num IS prime
 }
 
-console.log(isPrime(7)); // Expected true but gets false
+console.log(isPrime(4)); // Expected true but gets false
 
 // What’s Wrong?
+// The first return should be false, because if the remainder is 0, it would mean its not prime. The second return is also wrong, it should return true.
+
+
+//The debugging method I found most useful was to check the terminal using console.log()
